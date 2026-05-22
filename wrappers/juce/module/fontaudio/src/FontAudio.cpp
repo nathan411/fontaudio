@@ -20,7 +20,7 @@ namespace fontaudio
       return canvas;
     
     Font FontAudio = getFont((float)scaledSize);
-    scaledSize = std::max(FontAudio.getStringWidth(icon), scaledSize);
+    scaledSize = std::max((int) juce::GlyphArrangement::getStringWidth(FontAudio, icon), scaledSize);
     
     canvas = Image(Image::PixelFormat::ARGB, scaledSize, scaledSize, true);
     Graphics g(canvas);
