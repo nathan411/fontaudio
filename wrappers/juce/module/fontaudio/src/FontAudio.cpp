@@ -72,15 +72,13 @@ namespace fontaudio
   
   juce::Font IconHelper::getFont()
   {
-    static Font FontAudioFont(FontAudio_ptr);
+    static Font FontAudioFont{ FontOptions(FontAudio_ptr) };
     return FontAudioFont;
   }
   
   juce::Font IconHelper::getFont(float size)
   {
-    juce::Font font = getFont();
-    font.setHeight(size);
-    return font;
+    return getFont().withHeight (size);
   }
   
   void IconHelper::drawAt(juce::Graphics &g, IconName icon, float size, juce::Colour colour, int x, int y, float scaleFactor)
